@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>APG - Spray Painting & Repair</title>
+</head>
+<body>
+    <aside>
+        <figure>
+            <div id="logo"></div>
+            <figcaption>Anthony Paul Gumina</figcaption>
+        </figure>
+        <img id="sideMenu" src="images/menu.svg">
+        <nav>
+            <ul id="menu">
+                <li><img id="menuLogo" src="images/logo_round.png"></li>
+                <li><a class="menuItem" href="#">Home</a></li>
+                <li><a class="menuItem" href="#">Plans & Pricing</a></li>
+                <li><a class="menuItem" href="#">Opening Hours</a></li>
+                <li><a class="menuItem" href="#">About Us</a></li>
+                <li><a class="menuItem" href="#">Contact</a></li>
+                <li id="menuCopyRigth">© 2019 Anthony Paul Gumina</li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div id="mainImage">
+            <div class="imageOverlay">
+                <h1 id="mainHeader">Welcome to Anthony Paul Gumina</h1>
+                <p id="mainSubHeader">Fast, Professional and Reliable Service</p>
+            </div>
+        </div>
+        <div id="servicesHeaderDiv">
+            <h2>Plans & Pricing</h2>
+            <p id="servicesSubHeader">Fully Qualified and Licensed</p>
+        </div>
+        <div id="servicesContent">
+            <div class="service">
+                <div class="background" id="serviceSprayPainting"></div>
+                <div class="imageOverlay serviceOverlay">
+                    <p class="serviceName">Spray Painting</p>
+                    <div class="serviceButton">
+                        <p class="serviceButtonText">Get in Touch</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="background" id="serviceRepair"></div>
+                <div class="imageOverlay serviceOverlay">
+                    <p class="serviceName">Panel Beating</p>
+                    <div class="serviceButton">
+                        <p class="serviceButtonText">Get in Touch</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="background" id="serviceMore">
+                    <div class="backgroundTile" id="bgtile1"></div>
+                    <div class="backgroundTile" id="bgtile2"></div>
+                    <div class="backgroundTile" id="bgtile3"></div>
+                    <div class="backgroundTile" id="bgtile4"></div>
+                </div>
+                <div id="backgroundTileShadow"></div>
+                <div id="serviceOverlayMore" class="imageOverlay serviceOverlay">
+                    <p id="serviceNameMore" class="serviceName">Specials</p>
+                    <div class="serviceButton">
+                        <p class="serviceButtonText">Get in Touch</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="openingContainer">
+            <h2>Opening Hours</h2>
+            <p id="openingSubHeader">Come Visit</p>
+            <p class="openingHours">Mon - Fri: 7am - 5pm </p>
+            <p class="openingHours">Sat - Sun: Closed</p>
+        </div>
+        <div id="contactContainer">
+            <div id="contactHeaderContainer">
+                <h2 id="contactHeader">Contact Us</h2>
+                <p class="contactDetails">APG - Spray Painting & Repair</p>
+                <p class="contactDetails">7/125 Rockingham Rd, Hamilton Hill, WA 6163</p>
+                <p class="contactDetails">apgspraypaintingrepar@gmail.com</p>
+                <p class="contactDetails">08-9418-4844</p>
+                <p id="last-contact-detail" class="contactDetails">0400-477-127</p>
+            </div>
+            <div id="formContainer">
+                <form action="/contact.php" method="post" autocomplete="off">
+                    <p class="subHeader">Or just leave Us a Message:</p>
+                    <div id="contactLayout">
+                        <div class="inputContainer">
+                            <input type="text" name="name" placeholder="Name">
+                            <div class="inputBar"></div>
+                        </div>
+                        <div class="inputContainer">
+                            <input type="text" name="email" placeholder="Email">
+                            <div class="inputBar"></div>
+                        </div>
+                        <div class="inputContainer">
+                            <input type="text" name="phone" placeholder="Phone">
+                            <div class="inputBar"></div>
+                        </div>
+                        <div class="inputContainer">
+                            <input type="text" name="subject" placeholder="Subject">
+                            <div class="inputBar"></div>
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <textarea name="message" placeholder="Type your message here..." id="messageInput"></textarea>
+                        <div class="inputBar"></div>
+                    </div>
+                    <p class="subHeader" id="userImageHeader">Attach some images:</p>
+                    <div id="user-image-container">
+                        <div id="contactImage0" class="imagePreview">
+                            <div id="contactShadow0"></div>
+                            <div id="contactOverlay0">
+                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton0"></div>
+                            </div>
+                        </div>
+                        <div id="contactImage1" class="imagePreview">
+                            <div id="contactShadow1"></div>
+                            <div id="contactOverlay1">
+                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton1"></div>
+                            </div>
+                        </div>
+                        <div id="contactImage2" class="imagePreview">
+                            <div id="contactShadow2"></div>
+                            <div id="contactOverlay2">
+                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton2"></div>
+                            </div>
+                        </div>
+                        <div id="contactImage3" class="imagePreview">
+                            <div id="contactShadow3"></div>
+                            <div id="contactOverlay3">
+                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton3"></div>
+                            </div>
+                        </div>
+                        <div id="contactImage4" class="imagePreview">
+                            <div id="contactShadow4"></div>
+                            <div id="contactOverlay4">
+                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fileUpload">
+                        <span class="formButton">Choose Files</span>
+                        <input id="upload" type="file" onchange="LoadImage(this)" name="image" accept="image/*" multiple>
+                    </div>
+                    <div id="delimiter"></div>
+                    <input class="formButton" type="submit" id="contactSubmit" value="Submit">
+                    <p id="submitThanks">Thanks for submitting!</p>
+                </form>
+            </div>
+        </div>
+        <div id="mapContainer">
+            <iframe id="map" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=7%2F125%20Rockingham%20Road%20Hamilton%20Hill%20WA+(APG%20Spray%20Painting%20%26%20Repair)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe>
+        </div>
+    </main>
+    
+    <script>
+        var globalInput;
+        (function(){
+            var menu = document.getElementById('menu'),
+                menuLink = document.getElementById('sideMenu');
+            menuLink.addEventListener('click', function(e){
+                menu.classList.toggle('active');
+                e.preventDefault();
+            })
+        })();
+
+        function LoadImage(input){
+            globalInput = input;
+            if (input.files.length > 5){
+                // TODO: CREATE VISUALLY APPEALING ERROR MESSAGE
+                alert("You may only select a maximum of 5 images!");
+                $('#upload').val("");
+                return;
+            }
+            for (var i = 0; i < 5; i++){
+                var shadowOverlay = document.getElementById("contactShadow" + i.toString());
+                var contactOverlay = document.getElementById("contactOverlay" + i.toString());
+                var element = document.getElementById("contactImage" + i.toString());
+                shadowOverlay.classList.remove("contactShadow");
+                contactOverlay.classList.remove("hasContent");
+                element.style.backgroundImage = "url('')";
+                element.style.borderStyle = "dashed";
+            }
+            var i;
+            for (i = 0; i < input.files.length; i++) {
+                setElementBackground(input.files[i], i);
+            }
+        }
+
+        function setElementBackground(file, i) {
+            var image = file;
+            var imageDiv = "contactImage" + i.toString();
+            var shadowOverlay = document.getElementById("contactShadow" + i.toString());
+            var contactOverlay = document.getElementById("contactOverlay" + i.toString());
+            shadowOverlay.classList.add("contactShadow");
+            contactOverlay.classList.add("hasContent");
+            var element = document.getElementById(imageDiv);
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                element.style.backgroundImage = "url(" + reader.result + ")";
+                element.style.borderStyle = "none";
+            };
+            if (image) {
+                reader.readAsDataURL(image);
+            }
+        }
+
+        function DeleteImage(overlay){
+            var id = overlay.id;
+            var index = id.charAt(id.length - 1);
+            var input = globalInput;
+            const dt = new DataTransfer();
+            for (let file of input.files)
+                if (file !== input.files[index]) 
+                    dt.items.add(file)
+
+            input.files = dt.files
+            LoadImage(input);
+        }
+        
+    </script>
+</body>
+</html>
