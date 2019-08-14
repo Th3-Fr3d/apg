@@ -4,6 +4,10 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Open Sans', sans-serif;
 */
 
+textarea{
+    resize: none;
+}
+
 body, html{
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -123,7 +127,7 @@ ul{
     bottom: 0;
     height: 35%;
     width: 100%;
-    background-color: rgba(241, 241, 241, 0.45)
+    background-color: rgba(241, 241, 241, 0.55)
 }
 #mainHeader{
     padding: 0;
@@ -177,6 +181,13 @@ ul{
     filter: blur(5px);
 }
 .service:hover .serviceName{
+    -webkit-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+    padding: 0;
+    margin: 2em 2em 0 2em;
+    font-size: 24pt;
+}
+.service:hover #serviceNameMore{
     padding: 0;
     margin:2em 2em 0 2em;
 }
@@ -300,7 +311,7 @@ ul{
     grid-template-rows: auto auto;
 }
 #contactHeader{
-    margin: 0 auto 1em auto;
+    margin: 0 auto .75em auto;
 }
 .contactDetails{
     margin: .4em 1em;
@@ -487,18 +498,41 @@ ul{
 #submitThanks{
     margin: .2em auto 2em auto;
 }
-
 /*CONTACT END*/
-/*MAP START*/
-#mapContainer{
-    filter: grayscale(100%);
+/*ABOUT START*/
+#aboutHeaderContainer{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+    background: gray url("../images/IMG_20190805_121822_1.jpg") no-repeat center;
+    background-size: cover;
+    filter: grayscale(40%);
+}
+#aboutContainer{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
 }
 
+.textBlock{
+    margin: 1em;
+    text-align: left;
+}
+
+/*ABOUT END*/
+/*MAP START*/
 #map{
     width: 100%;
     height: 600px;
 }
 /*MAP END*/
+#bottomContainer{
+    height: 100px;
+    width: calc(100% - 4em);
+    margin: 2em;
+}
 /*------------TABLET VIEW--------------------------*/
 @media only screen and (min-width: 500px){
     .imagePreview{
@@ -605,23 +639,28 @@ ul{
     #openingContainer{
         padding: 0;
         margin: 0;
-        height: 300px;
+        height: 250px;
         width: 100%;
     }
     #openingSubHeader{
         font-size: 14pt;
         margin: 1.2em 1em 1.5em 1em;
     }
-    #contactContainer{
+    /*#contactContainer{
         display: grid;
         grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+    }*/
+    #inputParentContainer{
+        display: grid;
+        grid-template-columns: 47.5% 5% 47.5%;
         grid-template-rows: auto;
     }
     .imagePreview{
         height: 100px;
     }
     #contactHeaderContainer{
-        background: #fff;
+        background: #f1f1f1;
         color: #000;
     }
     #contactLayout{
@@ -633,6 +672,23 @@ ul{
         -webkit-transition: all 0.25s linear;
         transition: all 0.25s linear;
         box-shadow: inset 0 0 100px 0 rgba(0, 0, 0, 1);
+    }
+    #contactSubmit{
+        margin: 1em auto 1em auto;
+        width: 500px;
+    }
+    #fileUpload {
+        margin: 2em auto;
+        width: 250px;
+    }
+    .contactDetails{
+        margin: .5em 1em;
+        font-size: 12pt;
+    }
+    #aboutContainer{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
     }
 }
 @media only screen and (min-width: 845px){
@@ -662,7 +718,10 @@ ul{
     .serviceOverlay{
         line-height: 175px;
     }
-    
+    .subHeader{
+        font-weight: normal;
+        font-size: 14pt;
+    }
 }
 @media only screen and (min-width: 1220px){
     #mainHeader{
@@ -681,5 +740,19 @@ ul{
     }
     .imagePreview{
         height: 175px;
+    }
+    #fileUpload {
+        margin: .5em auto;
+        width: 350px;
+    }
+    #messageInput{
+        height: 165px;
+        font-size: 12pt;
+    }
+    #contactLayout{
+        font-size: 14pt;
+    }
+    #delimiter{
+        margin: 1.5em 8px;
     }
 }

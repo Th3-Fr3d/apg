@@ -23,7 +23,7 @@
                 <li><a class="menuItem" href="#">Opening Hours</a></li>
                 <li><a class="menuItem" href="#">About Us</a></li>
                 <li><a class="menuItem" href="#">Contact</a></li>
-                <li id="menuCopyRigth">© 2019 Anthony Paul Gumina</li>
+                <li id="menuCopyRigth">©2019 Anthony Paul Gumina</li>
             </ul>
         </nav>
     </aside>
@@ -31,7 +31,7 @@
         <div id="mainImage">
             <div class="imageOverlay">
                 <h1 id="mainHeader">Welcome to Anthony Paul Gumina</h1>
-                <p id="mainSubHeader">Fast, Professional and Reliable Service</p>
+                <p id="mainSubHeader">Reliable, Professional and Quality Service</p>
             </div>
         </div>
         <div id="servicesHeaderDiv">
@@ -79,76 +79,92 @@
             <p class="openingHours">Mon - Fri: 7am - 5pm </p>
             <p class="openingHours">Sat - Sun: Closed</p>
         </div>
+        <div id="aboutHeaderContainer">
+            <div class="imageOverlay" id="aboutHeaderOverlay">
+                <h2>About Us</h2>
+            </div>
+        </div>
+        <div id="aboutContainer">
+            <p class="openingHours textBlock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu mauris vel massa fringilla euismod semper aliquet purus. Maecenas et lorem quam. Pellentesque sed urna lacus. Aenean ultrices mi odio, in convallis nulla posuere in. Aliquam lacinia, elit vel fringilla cursus, risus eros malesuada enim, a interdum dolor sem aliquam massa. In hac habitasse platea dictumst. Vestibulum hendrerit lectus leo, ac sagittis nibh rhoncus ac.</p>
+            <p class="openingHours textBlock"> Donec in sem iaculis, molestie eros et, porta mauris. Nulla eleifend, libero eget pulvinar rhoncus, neque massa egestas ligula, sit amet laoreet elit augue aliquam lectus. Sed faucibus dui felis, ut accumsan tellus pellentesque ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam malesuada facilisis mi, non convallis ante lobortis non. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </div>
         <div id="contactContainer">
             <div id="contactHeaderContainer">
                 <h2 id="contactHeader">Contact Us</h2>
                 <p class="contactDetails">APG - Spray Painting & Repair</p>
                 <p class="contactDetails">7/125 Rockingham Rd, Hamilton Hill, WA 6163</p>
-                <p class="contactDetails">apgspraypaintingrepar@gmail.com</p>
+                <p class="contactDetails">apgspraypaintingrepair@gmail.com</p>
                 <p class="contactDetails">08-9418-4844</p>
                 <p id="last-contact-detail" class="contactDetails">0400-477-127</p>
             </div>
             <div id="formContainer">
                 <form action="/contact.php" method="post" autocomplete="off">
                     <p class="subHeader">Or just leave Us a Message:</p>
-                    <div id="contactLayout">
-                        <div class="inputContainer">
-                            <input type="text" name="name" placeholder="Name">
-                            <div class="inputBar"></div>
-                        </div>
-                        <div class="inputContainer">
-                            <input type="text" name="email" placeholder="Email">
-                            <div class="inputBar"></div>
-                        </div>
-                        <div class="inputContainer">
-                            <input type="text" name="phone" placeholder="Phone">
-                            <div class="inputBar"></div>
-                        </div>
-                        <div class="inputContainer">
-                            <input type="text" name="subject" placeholder="Subject">
-                            <div class="inputBar"></div>
-                        </div>
-                    </div>
-                    <div class="inputContainer">
-                        <textarea name="message" placeholder="Type your message here..." id="messageInput"></textarea>
-                        <div class="inputBar"></div>
-                    </div>
-                    <p class="subHeader" id="userImageHeader">Attach some images:</p>
-                    <div id="user-image-container">
-                        <div id="contactImage0" class="imagePreview">
-                            <div id="contactShadow0"></div>
-                            <div id="contactOverlay0">
-                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton0"></div>
+                    <div id="inputParentContainer">
+                        <div>
+                            <div id="contactLayout">
+                                <div class="inputContainer">
+                                    <input type="text" name="name" placeholder="Name">
+                                    <div class="inputBar"></div>
+                                </div>
+                                <div class="inputContainer">
+                                    <input type="text" name="email" placeholder="Email">
+                                    <div class="inputBar"></div>
+                                </div>
+                                <div class="inputContainer">
+                                    <input type="text" name="phone" placeholder="Phone">
+                                    <div class="inputBar"></div>
+                                </div>
+                                <div class="inputContainer">
+                                    <input type="text" name="subject" placeholder="Subject">
+                                    <div class="inputBar"></div>
+                                </div>
+                            </div>
+                            <div class="inputContainer">
+                                <textarea name="message" placeholder="Type your message here..." id="messageInput"></textarea>
+                                <div class="inputBar"></div>
                             </div>
                         </div>
-                        <div id="contactImage1" class="imagePreview">
-                            <div id="contactShadow1"></div>
-                            <div id="contactOverlay1">
-                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton1"></div>
+                        <div></div>
+                        <div>
+                            <p class="subHeader" id="userImageHeader">Attach some images:</p>
+                            <div id="user-image-container">
+                                <div id="contactImage0" class="imagePreview">
+                                    <div id="contactShadow0"></div>
+                                    <div id="contactOverlay0">
+                                        <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton0"></div>
+                                    </div>
+                                </div>
+                                <div id="contactImage1" class="imagePreview">
+                                    <div id="contactShadow1"></div>
+                                    <div id="contactOverlay1">
+                                        <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton1"></div>
+                                    </div>
+                                </div>
+                                <div id="contactImage2" class="imagePreview">
+                                    <div id="contactShadow2"></div>
+                                    <div id="contactOverlay2">
+                                        <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton2"></div>
+                                    </div>
+                                </div>
+                                <div id="contactImage3" class="imagePreview">
+                                    <div id="contactShadow3"></div>
+                                    <div id="contactOverlay3">
+                                        <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton3"></div>
+                                    </div>
+                                </div>
+                                <div id="contactImage4" class="imagePreview">
+                                    <div id="contactShadow4"></div>
+                                    <div id="contactOverlay4">
+                                        <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="fileUpload">
+                                <span class="formButton">Choose Files</span>
+                                <input id="upload" type="file" onchange="LoadImage(this)" name="image" accept="image/*" multiple>
                             </div>
                         </div>
-                        <div id="contactImage2" class="imagePreview">
-                            <div id="contactShadow2"></div>
-                            <div id="contactOverlay2">
-                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton2"></div>
-                            </div>
-                        </div>
-                        <div id="contactImage3" class="imagePreview">
-                            <div id="contactShadow3"></div>
-                            <div id="contactOverlay3">
-                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton3"></div>
-                            </div>
-                        </div>
-                        <div id="contactImage4" class="imagePreview">
-                            <div id="contactShadow4"></div>
-                            <div id="contactOverlay4">
-                                <div class="deleteButton" onclick="DeleteImage(this)" id="deleteButton4"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="fileUpload">
-                        <span class="formButton">Choose Files</span>
-                        <input id="upload" type="file" onchange="LoadImage(this)" name="image" accept="image/*" multiple>
                     </div>
                     <div id="delimiter"></div>
                     <input class="formButton" type="submit" id="contactSubmit" value="Submit">
@@ -156,8 +172,13 @@
                 </form>
             </div>
         </div>
-        <div id="mapContainer">
+        <div>
             <iframe id="map" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=7%2F125%20Rockingham%20Road%20Hamilton%20Hill%20WA+(APG%20Spray%20Painting%20%26%20Repair)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe>
+        </div>
+        <div id="bottomContainer">
+            <p class="contactDetails">ABN: 79 472 745 572</p>
+            <p class="contactDetails">License: MRB 7866</p>
+            <p class="contactDetails">©2019 by Anthony Paul Gumina. Created by Frederik Höft</p>
         </div>
     </main>
     
@@ -218,6 +239,7 @@
             var index = id.charAt(id.length - 1);
             var input = globalInput;
             const dt = new DataTransfer();
+
             for (let file of input.files)
                 if (file !== input.files[index]) 
                     dt.items.add(file)
