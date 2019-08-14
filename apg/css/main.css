@@ -44,8 +44,6 @@ aside{
 
 figure{
     margin: 0;
-    display: grid;
-    grid-template-columns: 0px auto;
     display: flex;
     align-items: center;
 }
@@ -329,7 +327,7 @@ ul{
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
-    margin: 1.4em 1em 0em 1em;
+    margin: 1.4em 1em 0 1em;
 }
 .inputContainer {
     position: relative;
@@ -576,7 +574,6 @@ ul{
     }
     .menuItem{
         display: inline;
-        margin: 0;
         font-size: 1em;
         padding: 0 1em;
     }
