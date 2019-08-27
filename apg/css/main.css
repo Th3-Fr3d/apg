@@ -71,7 +71,16 @@ nav{
     height: 100%;
     overflow: auto;
 }
-.menuItem{
+/*.swipe-area{
+    position: absolute fixed !important;
+    z-index: 999;
+    background: transparent;
+    width: 50%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}*/
+.menu-item{
     text-decoration: none;
     text-transform: uppercase;
     display: block;
@@ -80,11 +89,11 @@ nav{
     color: #000;
 }
 
-#sideMenu{
+#side-menu{
     cursor: pointer;
 }
 
-#menuLogo{
+#menu-logo{
     display: block;
     width: 65%;
     margin-left: auto;
@@ -92,15 +101,14 @@ nav{
     padding: 1em;
 }
 /*STILL BUGGY --> OVERLAPS WITH TEXT ON DESKTOP IF ZOOMED IN*/
-#menuCopyRigth{
+#menu-copy-right{
     position: absolute;
     font-size: .7em;
     bottom: 1em;
     padding: 1em;
 }
 
-/* SHOULD ONLY BE APPLIED TO THE SPECIFIC #menu ELEMENT */ 
-ul{
+nav ul{
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -111,23 +119,32 @@ ul{
 }
 /*NAV ELEMENTS END*/
 /*MAIN WELCOME START*/
-#mainImage{
+#main-image{
     position: relative;
     height: 600px;
     width: 100%;
-    background: gray url("../images/main.jpg") no-repeat center;
+    background: gray url("../images/imgMain.jpg") no-repeat 20%;
     background-size: cover;
     padding: 0;
     margin: 0;
 }
-.imageOverlay{
+
+.image-overlay{
     position: absolute;
+    display: table;
     bottom: 0;
     height: 35%;
     width: 100%;
-    background-color: rgba(241, 241, 241, 0.55)
+    background-color: rgba(241, 241, 241, 0.55);
 }
-#mainHeader{
+
+.image-overlay h2{
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#main-header{
     padding: 0;
     text-transform: uppercase;
     text-align: center;
@@ -135,7 +152,7 @@ ul{
     font-size: 2.5em;
     margin: .75em 1em 0 1em;
 }
-#mainSubHeader{
+#main-sub-header{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 10pt;
@@ -143,20 +160,26 @@ ul{
 }
 /*MAIN WELCOME END*/
 /*MAIN SERVICES START*/
-#servicesHeaderDiv{
+.delimiter{
+    width: calc(100% - 16px);
+    background-color: #000;
+    height: 1px;
+    margin: .5em 8px;
+}
+#services-header-container{
     position: relative;
     width: 100%;
     height: 150px;
     padding: 0;
 }
-#servicesSubHeader{
+#services-sub-header{
     margin: 2em .5em;
     font-size: 8pt;
 }
-#servicesContent{
+#services-content{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 300px 300px 300px;
+    grid-template-rows: 350px 350px 350px;
 }
 .service{
     overflow: hidden;
@@ -164,10 +187,10 @@ ul{
     height: 100%;
     background: gray;
     position: relative;
-    margin: 0 10%;
+    margin: 0;
     box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, .5);
 }
-.service:hover .serviceOverlay{
+.service:hover .service-overlay{
     -webkit-transition: all 0.15s linear;
     transition: all 0.15s linear;
     height: 100%;
@@ -178,18 +201,18 @@ ul{
     transition: all 0.15s linear;
     filter: blur(5px);
 }
-.service:hover .serviceName{
+.service:hover .service-name{
     -webkit-transition: all 0.15s linear;
     transition: all 0.15s linear;
     padding: 0;
     margin: 2em 2em 0 2em;
     font-size: 24pt;
 }
-.service:hover #serviceNameMore{
+.service:hover #service-name-more{
     padding: 0;
-    margin:2em 2em 0 2em;
+    margin: .65em .4em .4em .4em;
 }
-.service:hover .serviceButton{
+.service:hover .service-button{
     cursor: pointer;
     text-transform: uppercase;
     position: absolute;
@@ -206,31 +229,50 @@ ul{
     height: 40px;
     padding:0;
 }
-.serviceButton:hover{
+.service:hover .delimiter{
+    margin: .25em 8px;
+}
+.service-button:hover{
     box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, .5);
 }
-.serviceName{
+.service-name{
     text-transform: uppercase;
     font-weight: lighter;
     font-size: 18pt;
     margin: 0;
 }
-.serviceButton{
+.service-button{
     display: none;
 }
-.serviceButtonText{
+.service-button-text{
     font-weight: normal;
     font-size: 10pt;
-    line-height: normal;
     padding: auto;
     margin: .8em auto;
     text-align: center;
 }
-.serviceOverlay{
+.service-overlay{
     -webkit-transition: all 0.15s linear;
     transition: all 0.15s linear;
+    display: block !important;
     height: 50%;
-    line-height: 150px;
+    line-height: 175px;
+}
+.special-li{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+}
+.special-header{
+    text-align: left;
+    margin: .25em .5em;
+}
+.prices{
+    font-weight: bolder;
+    text-align: right;
+    margin: .25em .5em;
+}
+#special-ul{
+    margin: .5em 0;
 }
 .background{
     position: absolute;
@@ -240,23 +282,28 @@ ul{
     background: gray;
     box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, .5);
 }
-.backgroundTile{
+.background-tile{
     height: 100%;
     width: 100%;
     background:gray;
 }
-#serviceSprayPainting{
-    background: url("../images/service_spray-painting.jpg") no-repeat center;
+#service-spray-painting{
+    background: url("../images/imgSprayPainting.jpg") no-repeat center;
     background-size: cover;
 }
-#serviceRepair{
-    background: url("../images/service_panel-beating.jpg") no-repeat center;
+#service-repair{
+    background: url("../images/imgPanelBeating.jpg") no-repeat center;
     background-size: cover;
 }
-#serviceMore{
+#service-more{
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
+}
+.special-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
 }
 #bgtile1{
     background: url("../images/bgtile1.jpg") no-repeat center;
@@ -274,7 +321,7 @@ ul{
     background: url("../images/bgtile4.jpg") no-repeat center;
     background-size: cover;
 }
-#backgroundTileShadow{
+#background-tile-shadow{
     position: absolute;
     top: 0;
     height: 100%;
@@ -284,59 +331,146 @@ ul{
 }
 /*SERVICES END*/
 /*OPENING START*/
-#openingContainer{
+#opening-container{
     padding: 0;
     margin: 0;
     height: 230px;
     width: 100%;
 }
-#openingSubHeader{
+#opening-sub-header{
     font-size: 14pt;
     margin: 1em 1em 1.3em 1em;
 }
-.openingHours{
+.opening-hours{
     margin: .4em 2em;
 }
 /*OPENING END*/
 /*CONTACT START*/
-#contactHeaderContainer{
-    background: #000;
-    color: #fff;
+.card{
+    border-radius: 10px;
+    overflow: hidden;
+    margin: .75em;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-#contactContainer{
+
+#slideshow-container{
+    width:100%;
+    position: relative;
+    margin: auto;
+}
+
+#dot-container{
+    margin: -.25em 0 .5em 0;
+    text-align: center;
+}
+
+.slide{
+    display: none;
+}
+
+.slide-image{
+    width: 100%;
+    height: 300px;
+}
+
+#prev, #next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+#prev:hover, #next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.current, .dot:hover {
+    background-color: #717171;
+}
+
+#next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+#contact-container{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
 }
-#contactHeader{
+#contact_us{
     margin: 0 auto .75em auto;
 }
-.contactDetails{
+.contact-details{
     margin: .4em 1em;
     font-size: 10pt;
+}
+#contact-header{
+    position: relative;
+    overflow: hidden;
+}
+#contact-header-container{
+    width: 100%;
 }
 #last-contact-detail{
     margin-bottom: 2em;
 }
-#formContainer{
+#form-container{
     margin:0;
     margin-top: 1em;
     padding: 0;
 }
-.subHeader{
+.sub-header{
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
     margin: 1.4em 1em 0 1em;
 }
-.inputContainer {
+.input-container {
     position: relative;
     display: block;
     width: calc(100% - .5em);
     margin: .5em !important;
 }
 
-.inputBar{
+.input-bar{
     background-color: #000;
     position: absolute;
     bottom: 2px !important;
@@ -346,7 +480,7 @@ ul{
     margin:0;
 }
 
-.inputContainer input {
+.input-container input {
     font-size: 12pt;
     color: #000;
     width: calc(100% - 1em);
@@ -358,7 +492,7 @@ ul{
     margin: .5em;
     padding:0;
 }
-#messageInput{
+#message-input{
     height: 150px;
     width: calc(100% - 1em);
     border-style: none;
@@ -369,7 +503,7 @@ ul{
     outline: none;
     padding:0;
 }
-#contactLayout{
+#contact-layout{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto auto auto;
@@ -382,7 +516,7 @@ ul{
     padding: 0;
     margin: 0;
 }
-.imagePreview{
+.image-preview{
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     position: relative;
@@ -400,7 +534,7 @@ ul{
     background-position: center;
 }
 
-.contactShadow{
+.contact-shadow{
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     position: absolute;
@@ -412,7 +546,7 @@ ul{
     border-radius: 10px;
 }
 
-.hasContent{
+.has-content{
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     position: absolute;
@@ -426,19 +560,19 @@ ul{
 }
 
 /*TODO: SCALE box-shadow FOR MOBILE VERSION*/   
-.imagePreview:hover .contactShadow{
+.image-preview:hover .contact-shadow{
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 1);
 }
 
-.imagePreview:hover .hasContent{
+.image-preview:hover .has-content{
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     height: 100%;
     border-radius: 10px;
 }
-.deleteButton{
+.delete-button{
     display: block;
     width: 30%;
     padding-top: 30%;
@@ -447,10 +581,10 @@ ul{
     margin: auto auto;
     border-radius: 50%;
 }
-#userImageHeader{
+#user-image-header{
     margin: 1em 1em .5em 1em;
 }
-#fileUpload {
+#file-upload {
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -470,7 +604,7 @@ ul{
     opacity: 0;
     filter: alpha(opacity=0);
 }
-.formButton{
+.form-button{
     cursor: pointer;
     display:block;
     padding: 1em;
@@ -481,40 +615,41 @@ ul{
     border-style: solid;
     border-radius: 10px;
 }
-#contactSubmit{
+#contact-submit{
     margin: 0 8px 1em 8px;
     width: calc(100% - 16px);
     background-color: #000;
     color: #fff;
 }
-#delimiter{
-    width: calc(100% - 16px);
-    background-color: #000;
-    height: 1px;
-    margin: .5em 8px;
+
+#about-header{
+    margin: 0;
+    padding: 0; 
+    vertical-align: middle;
 }
-#submitThanks{
+
+#submit-thanks{
     margin: .2em auto 2em auto;
 }
 /*CONTACT END*/
 /*ABOUT START*/
-#aboutHeaderContainer{
+#about-header-container{
     position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 400px;
-    background: gray url("../images/IMG_20190805_121822_1.jpg") no-repeat center;
+    height: 300px;
+    background: gray url("../images/imgAbout.jpg") no-repeat center;
     background-size: cover;
-    filter: grayscale(40%);
+    filter: grayscale(20%);
 }
-#aboutContainer{
+#about-container{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
 }
 
-.textBlock{
+.text-block{
     margin: 1em;
     text-align: left;
 }
@@ -526,33 +661,89 @@ ul{
     height: 600px;
 }
 /*MAP END*/
-#bottomContainer{
+#bottom-container{
     height: 100px;
     width: calc(100% - 4em);
     margin: 2em;
 }
 /*------------TABLET VIEW--------------------------*/
 @media only screen and (min-width: 500px){
-    .imagePreview{
+    #main-header{
+        padding: 0;
+        font-size: 2.75em;
+        margin: 1em 0 0 0;
+    }
+    #main-sub-header{
+        font-size: 12pt;
+    }
+    #about-header-container{
+        height: 400px;
+    }
+    #services-content{
+        grid-template-rows: 550px 550px 550px;
+    }
+    .service-overlay{
+        line-height: 275px;
+    }
+    .service-name{
+        font-size: 22pt;
+    }
+    .service:hover .service-name{
+        font-size: 29pt;
+    }
+    .special-header{
+        font-size: 16pt;
+    }
+    .prices{
+        font-size: 16pt;
+    }
+    .special-li{
+        margin: .5em 1em;
+        font-size: 14pt;
+    }
+    .service:hover .service-button{
+        bottom: 2.5em;
+        margin-left: -125px;
+        border-radius: 55px;
+        width: 250px;
+        height: 90px;
+    }
+    .service-button-text{
+        font-size: 15pt;
+        line-height: 90px;
+        margin: 0 auto;
+    }
+    .image-preview{
         height: 150px;
+    }
+    .card{
+        border-radius: 15px;
+        margin: 1em;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    }
+    #contact-container{
+        margin: 0 .75em;
+    }
+    .slide-image{
+        height: 400px;
     }
 }
 /*------------DESKTOP VIEW FROM NOW ON-------------*/
 @media only screen and (min-width: 768px){
     /*NAV ELEMENTS START*/
-    #sideMenu{
+    #side-menu{
         display: none;
     }
-    #menuLogo{
+    #menu-logo{
         display: none;
     }
-    #menuCopyRigth{
+    #menu-copy-right{
         display: none;
     }
     #logo{
         display: inline-block;
-        background: #f1f1f1 url("../images/logo_cropped.png") no-repeat center;
-        background-size: 65px;
+        background: #f1f1f1 url("../images/imgLogoCropped.png") no-repeat center;
+        background-size: 87.5%;
         width: 75px;
         height: 75px;
         border-radius: 50%;
@@ -569,15 +760,15 @@ ul{
         grid-template-rows: auto auto;
         padding: 0;
     }
-    li{
+    nav ul li{
         display: inline;
     }
-    .menuItem{
+    .menu-item{
         display: inline;
         font-size: 1em;
         padding: 0 1em;
     }
-    ul{
+    nav ul{
         display: block;
         list-style-type: none;
         position: relative !important;
@@ -596,10 +787,14 @@ ul{
     }
     /*NAV ELEMENTS END*/
     /*MAIN SERVICES START*/
-    #servicesHeaderDiv{
-        height: 200px;
+    #main-header{
+        margin: 1em 3em 0 3em;
     }
-    #servicesContent{
+    #contact-header-background{
+        height: 320px;
+        filter: blur(10px)
+    }
+    #services-content{
         display: grid;
         grid-template-columns: auto auto auto;
         grid-template-rows: 300px;
@@ -607,82 +802,96 @@ ul{
     .service{
         margin: 0;
     }
-    .service:hover .serviceButton{
-        cursor: pointer;
-        text-transform: uppercase;
-        font-weight: bold;
-        position: absolute;
-        bottom: 2em;
-        left: 50%;
+    .service:hover .service-button{
+        bottom: 1.25em;
         margin-left: -75px;
-        display: block;
-        background: transparent;
-        border-style: solid;
         border-radius: 30px;
         border-width: 2px;
-        border-color: #000;
         width: 150px;
         height: 60px;
-        padding:0;
     }
-    .serviceButtonText{
+    .service-button-text{
         font-weight: bold;
         font-size: 12pt;
-        line-height: normal;
+        line-height: 60px;
         padding: auto;
-        margin: 1.1em auto;
+        margin: 0;
         text-align: center;
     }
-    #openingContainer{
+    .service:hover #service-name-more{
         padding: 0;
-        margin: 0;
-        height: 250px;
-        width: 100%;
+        margin: .3em .75em;
     }
-    #openingSubHeader{
-        font-size: 14pt;
+    #opening-container{
+        height: 250px;
+    }
+    #opening-sub-header{
+        font-size: 16pt;
         margin: 1.2em 1em 1.5em 1em;
     }
-    /*#contactContainer{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
-    }*/
-    #inputParentContainer{
+    #input-parent-container{
         display: grid;
         grid-template-columns: 47.5% 5% 47.5%;
         grid-template-rows: auto;
     }
-    .imagePreview{
+    .image-preview{
         height: 100px;
     }
-    #contactHeaderContainer{
-        background: #f1f1f1;
-        color: #000;
+    .card{
+        border-radius: 20px;
+        margin: 1.25em;
     }
-    #contactLayout{
+    #contact-container{
+        margin: 0 1em;
+    }
+    .service-overlay{
+        line-height: 150px;
+    }
+    .service-name{
+        font-size: 18pt;
+    }
+    .service:hover .service-name{
+        margin: 2em 1em 0 1em;
+        font-size: 24pt;
+    }
+    .special-header{
+        font-size: 12pt;
+    }
+    .prices{
+        font-size: 12pt;
+    }
+    .special-li{
+        margin: 0;
+        font-size: 12pt;
+    }
+
+    .slide-image{
+        height: 425px;
+    }
+
+    #contact-layout{
         display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto;
     }
-    .imagePreview:hover .contactShadow{
+    .image-preview:hover .contact-shadow{
         -webkit-transition: all 0.25s linear;
         transition: all 0.25s linear;
         box-shadow: inset 0 0 100px 0 rgba(0, 0, 0, 1);
     }
-    #contactSubmit{
+    #contact-submit{
         margin: 1em auto 1em auto;
         width: 500px;
     }
-    #fileUpload {
+    #file-upload {
         margin: 2em auto;
         width: 250px;
     }
-    .contactDetails{
+    .contact-details{
         margin: .5em 1em;
         font-size: 12pt;
     }
-    #aboutContainer{
+    #about-container{
         display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: auto;
@@ -690,12 +899,12 @@ ul{
 }
 @media only screen and (min-width: 845px){
     /*MAIN WELCOME START*/
-    #mainHeader{
+    #main-header{
         padding: 0;
         font-size: 3.5em;
         margin: .5em 2em 0 2em;
     }
-    #mainSubHeader{
+    #main-sub-header{
         font-size: 16pt;
         margin : 0;
     }
@@ -703,53 +912,423 @@ ul{
         font-size: 3.2em;
         padding: .75em 1em 0 1em;
     }
-    #servicesSubHeader{
+    #services-header-container{
+        height: 200px;
+    }
+    #services-sub-header{
         margin: 1.5em .5em;
         font-size: 14pt;
     }
-    #servicesContent{
+    #services-content{
         display: grid;
         grid-template-columns: auto auto auto;
         grid-template-rows: 350px;
     }
-    .serviceOverlay{
+    .service:hover #service-name-more{
+        padding: 0;
+        margin: .75em;
+    }
+    .service:hover .service-button{
+        bottom: 2em;
+    }
+    .special-li{
+        margin: .25em auto;
+    }
+    .service-overlay{
         line-height: 175px;
     }
-    .subHeader{
+    .sub-header{
         font-weight: normal;
         font-size: 14pt;
     }
-}
-@media only screen and (min-width: 1220px){
-    #mainHeader{
-        margin: 1em 2em .5em 2em;
+    .slide-image{
+        height: 450px;
     }
-    #mainSubHeader{
+}
+
+@media only screen and (min-width: 1000px){
+    #main-header{
+        margin: .5em 3em 0 3em;
+    }
+}
+/*------------HD MONITORS--------------------------*/
+@media only screen and (min-width: 1220px){
+    #main-header{
+        font-size: 4em;
+        margin: .75em .5em 0 .5em;
+    }
+    #main-sub-header{
         margin : 1em 0;
     }
-    #servicesContent{
+    #services-content{
         display: grid;
         grid-template-columns: auto auto auto;
         grid-template-rows: 450px;
     }
-    .serviceOverlay{
+    .service-overlay{
         line-height: 225px;
     }
-    .imagePreview{
+    .service:hover #service-name-more{
+        padding: 0;
+        margin: 1em;
+    }
+    .service:hover .delimiter{
+    margin: .5em 8px;
+    }
+    .special-li{
+        margin: .5em auto;
+        font-size: 14pt;    
+    }
+    .special-header{
+        font-size: 16pt;
+    }
+    .prices{
+        font-size: 16pt;
+    }
+    #special-ul{
+        margin: 0 0 .5em 0;
+    }
+    #about-header-container{
+        height: 500px;
+    }
+    .image-preview{
         height: 175px;
     }
-    #fileUpload {
+    #file-upload {
         margin: .5em auto;
         width: 350px;
     }
-    #messageInput{
+    #message-input{
         height: 165px;
         font-size: 12pt;
     }
-    #contactLayout{
+    #contact-layout{
         font-size: 14pt;
     }
-    #delimiter{
+    .slide-image{
+        height: 550px;
+    }
+    .delimiter{
         margin: 1.5em 8px;
     }
+}
+/*------------FULL HD MONITORS---------------------*/
+@media only screen and (min-width: 1900px){
+    figcaption{
+        font-size: 2em;
+    }
+    #logo{
+        width: 100px;
+        height: 100px;
+        margin: 1em;
+    }
+    .menu-item{
+        font-size: 1.5em;
+        padding: 0 1em;
+    }
+    nav ul{
+        padding: 1.5em;
+    }
+    #main-image{
+        height: 800px;
+    }
+    #main-header{
+        font-size: 6em;
+        margin: .6em 0 0 0;
+    }
+    #main-sub-header{
+        font-size: 19pt;
+    }
+    h2{
+        font-size: 4.1em;
+    }
+    p{
+        font-size: 16pt;
+    }
+    #services-sub-header{
+        font-size: 19pt;
+    }
+    #services-header-container{
+        height: 250px;
+    }
+    #services-content{
+        grid-template-rows: 600px;
+    }
+    .service-overlay{
+        line-height: 300px;
+    }
+    .service-name{
+        font-size: 26pt;
+    }
+    .service:hover .service-name{
+        font-size: 35pt;
+    }
+    .special-header{
+        font-size: 23pt;
+    }
+    .prices{
+        font-size: 23pt;
+    }
+    .special-li{
+        margin: .5em 1em;
+        font-size: 19pt;
+    }
+    .service:hover .service-button{
+        bottom: 2.5em;
+        margin-left: -150px;
+        border-radius: 55px;
+        width: 300px;
+        height: 110px;
+    }
+    .service-button-text{
+        font-size: 20pt;
+        line-height: 110px;
+        margin: 0 auto;
+    }
+    .service-button:hover{
+        box-shadow: inset 0 0 35px 0 rgba(0, 0, 0, .5);
+    }
+    .card{
+        border-radius: 30px;
+        margin: 2em;
+        box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2);
+    }
+    #opening-container{
+        height: 375px;
+    }
+    #opening-sub-header{
+        font-size: 22pt;
+        margin: 1.2em 1em 1.5em 1em;
+    }
+    .opening-hours{
+        margin: .75em auto;
+    }
+    #about-header-container{
+        height: 750px;
+    }
+    .slide-image{
+        height: 775px;
+    }
+    .dot {
+        height: 23px;
+        width: 23px;
+        margin: 0 3px;
+    }
+    #dot-container{
+        margin: .25em 0 0 0;
+    }
+    .contact-details{
+        margin: .75em 1em;
+        font-size: 19pt;
+    }
+    #prev, #next {
+        margin-top: -33px;
+        padding: 24px;
+        font-size: 27px;
+        border-radius: 0 5px 5px 0;
+    }
+    #next {
+        border-radius: 5px 0 0 5px;
+    }
+    .sub-header{
+        font-size: 20pt;
+    }
+    .input-container input{
+        font-size: 17pt;
+    }
+    #contact-container{
+        margin: 0 2em;
+    }
+    #message-input{
+        height: 230px;
+        font-size: 17pt;
+    }
+    .image-preview{
+        height: 225px;
+        border-radius: 20px;
+        border-width: 2px;
+        margin: .75em;
+        width: calc(100% - 1.5em);
+    }
+    .form-button{
+        border-radius: 15px;
+    }
+    #file-upload{
+        width: 500px;
+    }
+    #file-upload span{
+        font-size: 16pt;
+    }
+    #contact-submit{
+        font-size: 16pt;
+        width: 800px;
+    }
+    #map{
+        height: 800px;
+    }
+    #bottom-container{
+        height: 150px;
+    }
+}
+/*------------2K MONITORS--------------------------*/
+@media only screen and (min-width: 2550px){
+    figcaption{
+        font-size: 2.5em;
+    }
+    #logo{
+        width: 150px;
+        height: 150px;
+        margin: 1.5em;
+    }
+    .menu-item{
+        font-size: 2em;
+        padding: 0 1em;
+    }
+    nav ul{
+        padding: 2em;
+    }
+    #main-image{
+        height: 1000px;
+    }
+    #main-header{
+        font-size: 7em;
+        margin: .75em 0 0 0;
+    }
+    #main-sub-header{
+        font-size: 24pt;
+    }
+    h2{
+        font-size: 5em;
+    }
+    p{
+        font-size: 22pt;
+    }
+    #services-sub-header{
+        font-size: 24pt;
+    }
+    #services-header-container{
+        height: 325px;
+    }
+    #services-content{
+        grid-template-rows: 800px;
+    }
+    .service-overlay{
+        line-height: 400px;
+    }
+    .service-name{
+        font-size: 34pt;
+    }
+    .service:hover .service-name{
+        font-size: 46pt;
+    }
+    .special-header{
+        font-size: 30pt;
+    }
+    .prices{
+        font-size: 30pt;
+    }
+    .special-li{
+        font-size: 24pt;
+    }
+    .service:hover .service-button{
+        bottom: 3em;
+        margin-left: -200px;
+        border-radius: 80px;
+        width: 400px;
+        height: 160px;
+    }
+    .service-button-text{
+        font-size: 28pt;
+        line-height: 160px;
+    }
+    .service-button:hover{
+        box-shadow: inset 0 0 55px 0 rgba(0, 0, 0, .5);
+    }
+    .card{
+        border-radius: 40px;
+        margin: 2.5em;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+    }
+    #opening-container{
+        height: 450px;
+    }
+    #opening-sub-header{
+        font-size: 28pt;
+    }
+    #about-header-container{
+        height: 1000px;
+    }
+    .slide-image{
+        height: 1100px;
+    }
+    .dot {
+        height: 30px;
+        width: 30px;
+        margin: 0 4px;
+    }
+    #dot-container{
+        margin: .25em 0 .1em 0;
+    }
+    .contact-details{
+        margin: .75em 1em;
+        font-size: 24pt;
+    }
+    #prev, #next {
+        margin-top: -44px;
+        padding: 32px;
+        font-size: 36px;
+        border-radius: 0 6px 6px 0;
+    }
+    #next {
+        border-radius: 6px 0 0 6px;
+    }
+    .sub-header{
+        font-size: 26pt;
+    }
+    .input-container input{
+        font-size: 24pt;
+    }
+    #contact-container{
+        margin: 0 2.5em;
+    }
+    #message-input{
+        height: 300px;
+        font-size: 24pt;
+    }
+    .image-preview{
+        height: 300px;
+        border-radius: 30px;
+        margin: 1em;
+        width: calc(100% - 2em);
+    }
+    .form-button{
+        border-radius: 20px;
+    }
+    #file-upload{
+        width: 700px;
+    }
+    #file-upload span{
+        font-size: 22pt;
+    }
+    .delimiter{
+        height: 2px;
+    }
+    .input-bar{
+        height: 2px !important;
+    }
+    #contact-submit{
+        font-size: 22pt;
+        width: 1250px;
+    }
+    #map{
+        height: 1250px;
+        max-width: 100% !important;
+    }
+    #bottom-container{
+        height: 200px;
+    }
+}
+/*------------4K MONITORS--------------------------*/
+@media only screen and (min-width: 3800px){
+
 }
